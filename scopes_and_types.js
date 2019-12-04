@@ -15,37 +15,40 @@
 
     // DECLARATION
 
-    let zahl = 123;
+    let number = 123;
     let text = 'Irgendein Text';
-    let jaNein = true;
+    let YesNo = true;
     let array = [1, 'two', 3, 6];
     let objekt = {
         para1: 'Objekt',
         para2: 'mit Text',
         para3: 4,
         para4: false
-    }
+    };
 
 
     // FUNCTIONS
 
-    function log(lName, lAusgabeVariable) {
+    function log(lName, lOutputVariable) {
 
-        switch (lName) {
-            case 'zahl':
-            case 'text':
-            case 'jaNein':
-                console.log(lName + " {" + typeof (lAusgabeVariable) + '}: ' + lAusgabeVariable);
+        var lDataType = typeof (lOutputVariable);
+
+        switch (lDataType) {
+            case 'number':
+            case 'string':
+            case 'boolean':
+                console.log(lName + " {" + typeof (lOutputVariable) + '}: ' + lOutputVariable);
                 break;
-            case 'array':
-                var lArrayAusgabe = '';
-                for (var i = 0, len = lAusgabeVariable.length; i < len; i += 1) {
-                    lArrayAusgabe = lArrayAusgabe + lAusgabeVariable[i] + ",";
+            case 'object':
+                if (Array.isArray(lOutputVariable)) {
+                    var lArrayData = '';
+                    for (var i = 0, len = lOutputVariable.length; i < len; i += 1) {
+                        lArrayData = lArrayData + lOutputVariable[i] + ",";
+                    }
+                    console.log(lName + " {" + typeof (lOutputVariables) + '}: ' + lArrayData);
+                } else {
+                    console.log(lName + " {" + typeof (lOutputVariable) + '}: ' + Object.values(lOutputVariable));
                 }
-                console.log(lName + " {" + typeof (lAusgabeVariable) + '}: ' + lArrayAusgabe);
-                break;
-            case 'objekt':
-                console.log(lName + " {" + typeof (lAusgabeVariable) + '}: ' + Object.values(lAusgabeVariable));
                 break;
             default:
                 break;
@@ -54,9 +57,9 @@
 
     //CONTROL
 
-    log('zahl', zahl);
+    log('zahl', number);
     log('text', text);
-    log('jaNein', jaNein);
+    log('jaNein', YesNo);
     log('array', array);
     log('objekt', objekt);
 
