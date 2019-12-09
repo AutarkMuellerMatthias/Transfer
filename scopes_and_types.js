@@ -26,41 +26,16 @@
         para4: false
     };
 
-
     // FUNCTIONS
 
-    function log(lName, lOutputVariable) {
-
-        var lDataType = typeof (lOutputVariable);
-
-        switch (lDataType) {
-            case 'number':
-            case 'string':
-            case 'boolean':
-                console.log(lName + " {" + typeof (lOutputVariable) + '}: ' + lOutputVariable);
-                break;
-            case 'object':
-                if (Array.isArray(lOutputVariable)) {
-                    var lArrayData = '';
-                    for (var i = 0, len = lOutputVariable.length; i < len; i += 1) {
-                        lArrayData = lArrayData + lOutputVariable[i] + ",";
-                    }
-                    console.log(lName + " {" + typeof (lOutputVariables) + '}: ' + lArrayData);
-                } else {
-                    console.log(lName + " {" + typeof (lOutputVariable) + '}: ' + Object.values(lOutputVariable));
-                }
-                break;
-            default:
-                break;
-        }
-    }
 
     //CONTROL
 
-    log('zahl', number);
-    log('text', text);
-    log('jaNein', YesNo);
-    log('array', array);
-    log('objekt', objekt);
+    tools.log('zahl', number);
+    tools.log('text', text);
+    tools.log('jaNein', YesNo);
+    tools.log('array', array);
+    tools.log('objekt', objekt);
+    tools.getType(text); // Test
 
 })()
