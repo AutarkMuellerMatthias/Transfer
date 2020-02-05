@@ -66,6 +66,23 @@
         return lType;
     }
 
+    /**
+     * @param {string} lText 
+     * @param {string} lLink 
+     * @param list ul 
+     */
+    function _addNavigation(lText, lLink, ul) {
+
+        let li = document.createElement('li');
+        let a = document.createElement('a');
+        let text = document.createTextNode(lText);
+        a.setAttribute('href', lLink);
+        a.appendChild(text);
+        li.appendChild(a);
+        ul.appendChild(li);
+
+    }
+
     //CONTROLS
     function main() {
 
@@ -73,6 +90,7 @@
         window.tools = {} || window.tools;
         window.tools.log = _log;
         window.tools.getType = _getType;
+        window.tools.addNavigation = _addNavigation;
 
     }
 
